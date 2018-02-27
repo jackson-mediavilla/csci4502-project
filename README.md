@@ -1,4 +1,4 @@
-# Data Mining Project - Baseball Analytics
+# Baseball: Player Performance and its Factors
 
 **Team Members**
 * Jackson Mediavilla
