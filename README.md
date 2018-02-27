@@ -2,3 +2,4 @@
 
 **Team Members**
 * Jackson Mediavilla
+* Vail Dorchester
