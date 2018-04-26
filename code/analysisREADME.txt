@@ -1,5 +1,10 @@
 INTRODUCTION
 
+    This project was done by Vail Dorchester and Jackson Mediavilla.
+
+    The goal was to analyze baseball data and learn what factors influence
+    player performance.
+
     I've decided to make this readme for the analysis code to document some of the
     decisions and thought processes I went through. This will hopefully help
     in writing the report and also in making the code more understandable.
@@ -74,6 +79,41 @@ DATA PRE-PROCESSING
     For the data preprocessing, most of the work involved pruning the data,
     reformatting some features, and making the data smaller in terms of memory
     usage so that analysis was easier, more streamlined, and also faster
-    computationally.
+    computationally. A lot of this was dropping unnecessary columns because
+    the data contained way more information than we needed.
 
     -- Event Data --
+    Preprocessing the event data consisted largely of removing irrelevant
+    features. This was done by manually reading over the data descriptions
+    on retrosheet and finding the columns that were not related. This was
+    mostly things like who played each and every position, where the ball was
+    hit, errors made, etc. Since our main metrics are batting average and
+    batting average against, we weren't really concerned with anything that
+    happened after the batter hit the ball or struck out. I kept information
+    on whether or not it was a single, double, etc, and also on RBI, and other
+    base stats, but the player and detailed play info -- most of the features --
+    was removed.
+
+    After pruning, I looked at any fields that could be converted to categories
+    and then integers. This included lots of flags and binary fields such as
+    which hand the batter used, which hand the pitcher used, and flags for
+    bunt, whether the event ended the batters appearance, and things of that
+    nature. Originally, I left the individual player codes intact because I
+    thought we might use them later on. However, after stepping back and
+    thinking about it, this project is more interested in overall trends as
+    opposed to specifics like player names, so I may end up converting the name
+    information and specific codes to integers as well that act as IDs. That
+    would probably save a significant amount of space and processing time.
+
+    Doing this, I was able to reduce the physical memory usage of the data
+    by ~85%, but I think I could reduce it by even more by casting the
+    other categorical data to ints as well.
+
+    Finally, after casting the data to integers, I used cat.codes and
+    pandas.to_numeric() to reduce the integers to their smallest form without
+    data loss.
+
+    -- Game Log Data --
+    For this, I did basically the exact same thing that I did to the event data.
+    The ONLY difference is which specific fields were dropped or converted to
+    integers.
