@@ -1,0 +1,79 @@
+INTRODUCTION
+
+    I've decided to make this readme for the analysis code to document some of the
+    decisions and thought processes I went through. This will hopefully help
+    in writing the report and also in making the code more understandable.
+    This is honestly more for my own good than anything, because it's easy
+    to get lost in the details and forget the big picture of what you've done
+    and what you're trying to do.
+
+    Basically, the way it's set up now, I've defined functions to generate the
+    data and to prune the data. Right now, we are dealing with two datasets --
+    one of all of the event files, and one of the game logs. I will probably
+    pull some weather data later.
+
+DATA DESCRIPTION
+
+    -- Event Data --
+    The event data contains information on
+    every EVENT. To clarify, a regular pitch is not an event. Only things like
+    hits, stolen bases, outs, etc. Pretty much anything except regular pitches,
+    because that would make the data way too large. This data contains really
+    any information you could possible be interested in to the point where it's
+    kind of excessive. For example, who was playing every single position
+    when the play occurred, who contributed to fielding the ball and in what
+    order, etc. The data is organized in files for each team and year. The data
+    also contains which game the play took place in, which was important for
+    matching this data to the game log data and weather data.
+
+    -- Game Logs --
+    The game logs are general summaries of each game -- scores, totals, dates,
+    lineups, team stats, time of day, field, etc. It also contained all of the
+    umpire information, the team rosters, and the lineups. Mostly, I wanted
+    the offensive and defensive game summaries, the dates, attendance,
+    time of day, park ID (for weather location), etc.
+
+
+DATA GATHERING
+
+    -- Summary --
+    Basically, we wanted to analyze player performance, so we figured the data
+    that would be useful for this would be event data, game logs, and weather
+    data, where the weather is an outside factor chosen to compare to player
+    performance. All of the baseball data came from retrosheet.org.
+
+    -- Event Data --
+    The event data was originally in a ton of poorly formatted text files on
+    retrosheet.org. We downloaded files from 1950-present day, and then used
+    functions included in retrosheet called BEVENT to format the data into CSV
+    files. First, I wrote a bash script to find the paths of all of the event
+    files and store those paths in a separate file, the path file. This path
+    file was then loaded in python and each line was read and opened and
+    imported into a csv. The dataset is rather large (~10M rows), so I added
+    a subframe option to the method where you can specify how many files you
+    want to include. By default, it is 50. -1 gets all of the files.
+
+    -- Game Log Data --
+    This data was also on retrosheet.org. I downloaded a bunch of text files
+    where each file contains the game logs for a year. They came in folders by
+    the decade. To import this, I wrote a python method that basically uses
+    os.listdir to list all of the files in the folder, and I had a path defined
+    for the folder that holds all of the game log subfolders. Then, I defined
+    the start year of 1950 and end year of 2017, and basically just iterated
+    over each decade folder to see if the start date was more recent or equal
+    to the range of the decade folder. If so, I opened the folder and imported
+    all game logs that were more recent than out start date. Looking back,
+    this was probably way more efficient and easier than writing bash scripts
+    and moving a bunch of folders around. At the same time, this data was also
+    already in CSV format (though it was in __.txt files), so it was easier
+    to import and required less processing.
+
+DATA PRE-PROCESSING
+
+    -- Summary --
+    For the data preprocessing, most of the work involved pruning the data,
+    reformatting some features, and making the data smaller in terms of memory
+    usage so that analysis was easier, more streamlined, and also faster
+    computationally.
+
+    -- Event Data --
