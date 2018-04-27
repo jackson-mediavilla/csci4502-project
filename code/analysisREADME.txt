@@ -73,6 +73,11 @@ DATA GATHERING
     already in CSV format (though it was in __.txt files), so it was easier
     to import and required less processing.
 
+    -- Park Info --
+    This was extremely simple. I just downloaded a text file in CSV format
+    with all of the park codes and information, then imported it into a single
+    dataframe.
+
 DATA PRE-PROCESSING
 
     -- Summary --
@@ -107,13 +112,21 @@ DATA PRE-PROCESSING
 
     Doing this, I was able to reduce the physical memory usage of the data
     by ~85%, but I think I could reduce it by even more by casting the
-    other categorical data to ints as well.
+    other categorical data to ints as well. Update: Got the data reduced by
+    about 89% in size. Decided to keep player names and park codes, and team
+    codes as strings so that they will reference across data sets. more
+    easily.
 
-    Finally, after casting the data to integers, I used cat.codes and
+    Finally, after casting categorical data to integers, I used cat.codes and
     pandas.to_numeric() to reduce the integers to their smallest form without
     data loss.
+
+    Then I did the same to floats.
 
     -- Game Log Data --
     For this, I did basically the exact same thing that I did to the event data.
     The ONLY difference is which specific fields were dropped or converted to
     integers.
+
+    -- Park Info --
+    No preprocessing needed.

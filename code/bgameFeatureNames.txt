@@ -1,0 +1,85 @@
+0    game id
+1    date
+2    game number (0 = no double header)
+3    day of week
+4    start time
+5    DH used flag
+6    day/night flag
+7    visiting team
+8    home team
+9    game site
+10   vis. starting pitcher
+11   home starting pitcher
+12   home plate umpire
+13   first base umpire
+14   second base umpire
+15   third base umpire
+16   left field umpire
+17   right field umpire
+18   attendance
+19   PS scorer
+20   translator
+21   inputter
+22   input time
+23   edit time
+24   how scored
+25   pitches entered?
+26   temperature
+27   wind direction (See below)
+28   wind speed
+29   field condition (See below)
+30   precipitation (See below)
+31   sky (See below)
+32   time of game
+33   number of innings
+34   visitor final score
+35   home final score
+36   visitor hits
+37   home hits
+38   visitor errors
+39   home errors
+40   visitor left on base
+41   home left on base
+42   winning pitcher
+43   losing pitcher
+44   save for
+45   GW RBI
+46   visitor batter 1
+47   visitor position 1
+48   visitor batter 2
+49   visitor position 2
+50   visitor batter 3
+51   visitor position 3
+52   visitor batter 4
+53   visitor position 4
+54   visitor batter 5
+55   visitor position 5
+56   visitor batter 6
+57   visitor position 6
+58   visitor batter 7
+59   visitor position 7
+60   visitor batter 8
+61   visitor position 8
+62   visitor batter 9
+63   visitor position 9
+64   home batter 1
+65   home position 1
+66   home batter 2
+67   home position 2
+68   home batter 3
+69   home position 3
+70   home batter 4
+71   home position 4
+72   home batter 5
+73   home position 5
+74   home batter 6
+75   home position 6
+76   home batter 7
+77   home position 7
+78   home batter 8
+79   home position 8
+80   home batter 9
+81   home position 9
+82   visitor finishing pitcher (blank if complete game)
+83   home finishing pitcher (blank if complete game)
+84   name of official scorer, if known
