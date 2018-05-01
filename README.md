@@ -16,6 +16,8 @@ Because this study does not focus on individual players, the information gained 
 
 **Project Links**
 
-Video Demonstration:
+
+*Video file was too large to upload to GitHub
+Video Demonstration: https://www.youtube.com/watch?v=T9WydwJ-Yfg&feature=youtu.be 
 
 Final Paper: https://github.com/jackson-mediavilla/csci4502-project/blob/master/31_BaseballPlayerPerformanceAndItsFactors_Part4.pdf
