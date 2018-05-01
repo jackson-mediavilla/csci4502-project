@@ -6,7 +6,7 @@
 
 **Project Description**
 
-At the start of this project, we sought to examine the correlations between numerous factors and player performance. We hoped that data mining game events would reveal correlations that are not expected or easily identifiable. And We wanted to investigate which factors contribute most to player performance.
+At the start of this project, we sought to examine the correlations between numerous factors and player performance. We hoped that data mining game events would reveal correlations that are not expected or easily identifiable. And we wanted to investigate which factors contribute most to player performance.
 
 We wanted to focus on “outside” factors such as weather, stadium attendance, and field condition. The results show correlations of varying significance between player performance and other factors. We intended to evaluate a few player performance metrics, but as the project progressed, we realized that we needed to narrow our scope. Thus, the player performance metric we decided to focus on is batting average. The outside factors we examined, ordered from highest correlation to batting average to lowest correlation, are temperature, field condition, precipitation, wind direction, attendance, day vs. night, wind speed, and sky conditions. Based on the correlation results, we may be able to infer causation on player performance. 
 
